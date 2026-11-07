@@ -38,12 +38,14 @@ The current version is the first step: it estimates inference energy per individ
 
 - **Personal chat usage**: energy per query (Gemini / ChatGPT published figures, external estimates, or custom) × number of queries, plus image generation
 - **API / per-token**: estimate from active parameters, input/output tokens and monthly requests, given GPU throughput, utilization, server overhead and PUE
+- **Household impact**: pick one of Japan's 10 grid areas and a fiscal year (FY2026–FY2035) to estimate how much new data center demand could raise household electricity bills through grid reinforcement costs (network tariffs) and capacity costs (capacity market). Compare mitigation scenarios with load shifting and regional distribution
 - **Common**: monthly/yearly energy, CO₂ (adjustable emission factor), equivalent electricity cost, and everyday comparisons
 
 ## Roadmap
 
 - [ ] Save and share assumptions via URL; CSV export
 - [ ] Hourly load profiles (overlap with peak hours)
+- [x] Household impact (bill increase by area and year, with mitigation effects)
 - [ ] Regional aggregation (estimate regional demand from user counts and service scale, compared with grid supply capacity)
 - [ ] Load-shifting simulation (effect of avoiding peaks and moving to night-time or renewable-surplus hours)
 - [ ] Siting scenario comparison (urban-concentrated vs. regional data centers vs. edge inference)
@@ -54,7 +56,9 @@ The current version is the first step: it estimates inference energy per individ
 
 - Only inference (usage-time) electricity is covered. Model training, end-user devices, networks and data storage are excluded.
 - Published figures are self-reported by companies or external estimates, and their scopes differ. Use the results as order-of-magnitude estimates.
-- Sources and dates for each coefficient are listed in [`src/data/factors.ts`](src/data/factors.ts) and at the bottom of the app.
+- Data center demand in the household impact tab comes from OCCTO's FY2026 demand outlook (published 2026-01-21). The area split is not published as numbers, so it is allocated by each area's growth in industrial demand (an estimate).
+- Grid reinforcement cost per kW, general-burden share, annual cost rate, capacity price elasticity and similar coefficients in the household impact tab are assumptions with no public source. Results are for sensitivity analysis, not a forecast of actual tariff changes. Wholesale price effects are not included.
+- Sources and dates for each coefficient are listed in [`src/data/factors.ts`](src/data/factors.ts), [`src/data/grid.ts`](src/data/grid.ts) and at the bottom of the app.
 
 ## Development
 

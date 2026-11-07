@@ -32,6 +32,54 @@ export function NumberField(props: {
   );
 }
 
+/** Range slider for a 0-1 share, shown as a percentage. */
+export function ShareSlider(props: { label: string; value: number; onChange: (v: number) => void; hint?: ReactNode }) {
+  const pct = Math.round(props.value * 100);
+  return (
+    <label className="field">
+      <span className="field-label">
+        {props.label} <span className="slider-value">{pct}%</span>
+      </span>
+      <input
+        type="range"
+        className="slider"
+        min={0}
+        max={100}
+        step={5}
+        value={pct}
+        onChange={(e) => props.onChange(e.target.valueAsNumber / 100)}
+      />
+      {props.hint && <span className="hint">{props.hint}</span>}
+    </label>
+  );
+}
+
+export function SelectField<T extends string | number>(props: {
+  label: string;
+  value: T;
+  options: { value: T; label: string }[];
+  onChange: (v: T) => void;
+}) {
+  return (
+    <label className="field">
+      <span className="field-label">{props.label}</span>
+      <select
+        value={String(props.value)}
+        onChange={(e) => {
+          const opt = props.options.find((o) => String(o.value) === e.target.value);
+          if (opt) props.onChange(opt.value);
+        }}
+      >
+        {props.options.map((o) => (
+          <option key={String(o.value)} value={String(o.value)}>
+            {o.label}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+
 export function Stat(props: { label: string; value: string; unit: string; sub?: string }) {
   return (
     <div className="stat">

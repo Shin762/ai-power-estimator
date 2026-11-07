@@ -108,3 +108,16 @@ footer { font-size: 0.85rem; color: var(--muted); margin-top: 24px; }
 footer h2 { color: var(--text); margin-top: 20px; }
 footer ul { padding-left: 1.2em; }
 .sources { word-break: break-word; }
+
+.field select {
+  width: 100%; padding: 8px 10px; font: inherit; color: var(--text);
+  background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+}
+.slider { width: 100%; accent-color: var(--accent); }
+.slider-value { font-weight: 700; color: var(--accent); margin-left: 6px; font-variant-numeric: tabular-nums; }
+.subhead { font-size: 0.95rem; margin: 20px 0 10px; }
+
+.compare-bars { display: flex; flex-direction: column; gap: 8px; }
+.compare-row { display: grid; grid-template-columns: 4.5em 1fr 5.5em; align-items: center; gap: 8px; font-size: 0.85rem; }
+.compare-track { height: 14px; background: var(--bg); border-radius: 7px; overflow: hidden; display: flex; }
+.compare-value { text-align: right; font-variant-numeric: tabular-nums; }
