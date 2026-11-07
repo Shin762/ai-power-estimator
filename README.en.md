@@ -68,3 +68,7 @@ npm run build    # type check and build (output in dist/)
 ```
 
 Tech stack: React 19 / TypeScript / Vite / Vitest
+
+## License
+
+[MIT License](LICENSE)

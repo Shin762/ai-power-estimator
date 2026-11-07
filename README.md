@@ -66,3 +66,7 @@ npm run build    # 型チェックとビルド（dist/ に出力）
 ```
 
 技術スタック：React 19 / TypeScript / Vite / Vitest
+
+## ライセンス
+
+[MIT License](LICENSE)
